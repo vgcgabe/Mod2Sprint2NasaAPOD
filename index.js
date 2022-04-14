@@ -5,9 +5,14 @@ const imagem = $("#imagem");
 const video = $("#video");
 const chave = 'W9B28XjCqYfGaLBKfX4iaXezkfeylrT8zv4n0roZ';
 
+var dia=[];
+var mes=[];
+var ano=[];
+
 $("#botaoEnviaData").click(function(event){
     event.preventDefault();
     const date = $("#date").val();
+    console.log(date);
 
     $.ajax({
         url: `https://api.nasa.gov/planetary/apod?api_key=${chave}&date=${date}`,
@@ -25,7 +30,6 @@ $("#botaoEnviaData").click(function(event){
                 video.attr("src", resposta.url);
                 imagem.hide();
             }
-
         }
     });
 });
